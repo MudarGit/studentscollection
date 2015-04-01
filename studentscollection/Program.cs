@@ -19,15 +19,13 @@ namespace studentscollection
                 Console.WriteLine("What is the students name?");
                 var Name = Console.ReadLine();
                 studs.Add(Name);
-                new Students();
             }
             foreach (string stud in studs)
             {
-                var Nick = new Students();
-                Nick.Student();
-                Console.WriteLine("How many programs did {0} complete?", stud);
+                var Nick = new Students(stud);
+                Console.WriteLine("How many programs did {0} complete?", Nick.Name);
                 var programs = Console.ReadLine();
-                Console.WriteLine("How many people did {0} help?", stud);
+                Console.WriteLine("How many people did {0} help?", Nick.Name);
                 var helps = Console.ReadLine();
                 int program = Int32.Parse(programs);
                 int help = Int32.Parse(helps);
@@ -51,13 +49,13 @@ namespace studentscollection
                 }
                 Nick.Totals();
                 Console.WriteLine();
-                Console.WriteLine("{1}'s current level:{0} out of 5", Nick.studentLevel, stud);
+                Console.WriteLine("{1}'s current level:{0} out of 5", Nick.studentLevel, Nick.Name);
                 Console.WriteLine();
-                Console.WriteLine("{1}'s current rank:{0}", Nick.studentRank, stud);
+                Console.WriteLine("{1}'s current rank:{0}", Nick.studentRank, Nick.Name);
                 Console.WriteLine();
-                Console.WriteLine("{1}'s total finished programs:{0}", Nick.TotalProgram, stud);
+                Console.WriteLine("{1}'s total finished programs:{0}", Nick.TotalProgram, Nick.Name);
                 Console.WriteLine();
-                Console.WriteLine("{1}'s total helped peers:{0}", Nick.TotalPeer, stud);
+                Console.WriteLine("{1}'s total helped peers:{0}", Nick.TotalPeer, Nick.Name);
                 Console.WriteLine();
             }
            

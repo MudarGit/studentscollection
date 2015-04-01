@@ -15,10 +15,12 @@ namespace studentscollection
         public int PeerLevel = 0;
         public int TotalPeer = 0;
         public int TotalProgram = 0;
+        public string Name;
 
 
-        public void Student()
+        public Students(string name)
         {
+            this.Name = name;
             this.studentLevel = 0;
             this.studentRank = Rank.Beginner;
             this.Level = 0;
