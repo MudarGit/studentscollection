@@ -58,10 +58,6 @@ namespace studentscollection
                 Console.WriteLine("{1}'s total helped peers:{0}", Nick.TotalPeer, Nick.Name);
                 Console.WriteLine();
             }
-           
-
-            
-
         }
     }
 }
