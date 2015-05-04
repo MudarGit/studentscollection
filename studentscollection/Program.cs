@@ -13,13 +13,21 @@ namespace studentscollection
             List<string> studs = new List<string>();
             Console.WriteLine("How many students would you like to enter?");
             string counter = Console.ReadLine();
-            int counterint = Int32.Parse(counter);
+            int counterint;
+            if (int.TryParse(counter, out counterint))
+            {
+                // it's an int
+            }
+            if (counterint < 1)
+            {
+                Console.WriteLine("Don't Waste My Time");
+            }
             for(int counters = counterint ; counters > 0; counters--)
             {
                 Console.WriteLine("What is the students name?");
                 var Name = Console.ReadLine();
                 studs.Add(Name);
-            }
+            }           
             foreach (string stud in studs)
             {
                 var Nick = new Students(stud);
@@ -27,19 +35,29 @@ namespace studentscollection
                 var programs = Console.ReadLine();
                 Console.WriteLine("How many people did {0} help?", Nick.Name);
                 var helps = Console.ReadLine();
-                int program = Int32.Parse(programs);
-                int help = Int32.Parse(helps);
+                int program;
+                int help;
 
-                if (help >= 1)
+                if (int.TryParse(programs, out program))
+                {
+                    // it's an int
+                }
+                if (int.TryParse(helps, out help))
+                {
+                    // it's an int
+                }
+
+                if (program >= 0)
                 {
                     for (int countered = program; countered > 0; countered--)
                     {
                         Nick.CompleteProgram();
                     }
 
-                }
+                } 
+
                 Nick.Totals();
-                if (help >= 1)
+                if (help >= 0)
                 {
                     for (int countered = help; countered > 0; countered--)
                     {
@@ -48,6 +66,7 @@ namespace studentscollection
 
                 }
                 Nick.Totals();
+                Console.Clear();
                 Console.WriteLine();
                 Console.WriteLine("{1}'s current level:{0} out of 5", Nick.studentLevel, Nick.Name);
                 Console.WriteLine();
@@ -56,8 +75,9 @@ namespace studentscollection
                 Console.WriteLine("{1}'s total finished programs:{0}", Nick.TotalProgram, Nick.Name);
                 Console.WriteLine();
                 Console.WriteLine("{1}'s total helped peers:{0}", Nick.TotalPeer, Nick.Name);
-                Console.WriteLine();
+                Console.WriteLine();               
             }
+            Console.ReadLine();
         }
     }
 }
